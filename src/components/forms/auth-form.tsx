@@ -62,6 +62,7 @@ export default function AuthForm() {
               id="name"
               errors={errors}
               type="text"
+              disabled={isLoading}
             />
           )}
           <Input
@@ -70,6 +71,7 @@ export default function AuthForm() {
             id="email"
             errors={errors}
             type="email"
+            disabled={isLoading}
           />
           <Input
             label="Password"
@@ -77,6 +79,7 @@ export default function AuthForm() {
             id="password"
             errors={errors}
             type="password"
+            disabled={isLoading}
           />
 
           <div>
