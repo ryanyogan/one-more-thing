@@ -13,7 +13,7 @@ export default function Avatar({ user }: AvatarProps) {
       <div className="relative inline-block rounded-full overflow-hidden h-9 w-9 md:h-11 md:w-11">
         <Image
           fill
-          src={user?.image || "/images/placeholder.jog"}
+          src={user?.image || "/images/placeholder.jpg"}
           alt="avatar"
         />
       </div>
