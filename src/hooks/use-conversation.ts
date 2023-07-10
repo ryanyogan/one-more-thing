@@ -1,7 +1,7 @@
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
-export function UseConversation() {
+export function useConversation() {
   const params = useParams();
 
   const conversationId = useMemo(() => {

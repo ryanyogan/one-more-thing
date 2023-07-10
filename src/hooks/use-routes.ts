@@ -3,11 +3,11 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { HiChat, HiUsers } from "react-icons/hi";
 import { HiArrowLeftOnRectangle } from "react-icons/hi2";
-import { UseConversation } from "./use-conversation";
+import { useConversation } from "./use-conversation";
 
 export function useRoutes() {
   const pathName = usePathname();
-  const { conversationId } = UseConversation();
+  const { conversationId } = useConversation();
 
   const routes = useMemo(
     () => [
