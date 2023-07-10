@@ -26,6 +26,7 @@ export default function AuthForm() {
   }, [session?.status, router]);
 
   const toggleVariant = useCallback(() => {
+    //TODO: Abstract this out
     if (variant === "LOGIN") {
       setVariant("REGISTER");
     } else {
