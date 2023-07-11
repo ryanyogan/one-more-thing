@@ -1,5 +1,30 @@
 "use client";
 
-export default function Body() {
-  return <div className="flex-1 overflow-y-auto">Body</div>;
+import { useConversation } from "@/hooks/use-conversation";
+import { FullMessageType } from "@/types";
+import { useRef, useState } from "react";
+import MessageBox from "../messages/message-box";
+
+interface BodyProps {
+  initialMessages: FullMessageType[];
+}
+
+export default function Body({ initialMessages }: BodyProps) {
+  const [messages, setMessages] = useState(initialMessages);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const { conversationId } = useConversation();
+
+  return (
+    <div className="flex-1 overflow-y-auto">
+      {messages.map((message, idx) => (
+        <MessageBox
+          isLast={idx === messages.length - 1}
+          key={message.id}
+          data={message}
+        />
+      ))}
+      <div ref={bottomRef} className="pt-24" />
+    </div>
+  );
 }
