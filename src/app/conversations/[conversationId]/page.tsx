@@ -1,6 +1,8 @@
 import { getConversationById } from "@/actions/get-conversation-by-id";
 import { getMessages } from "@/actions/get-messages";
+import Body from "@/components/conversations/body";
 import Header from "@/components/conversations/header";
+import MessageForm from "@/components/conversations/message-form";
 import EmptyState from "@/components/ui/empty-state";
 
 interface IParams {
@@ -31,6 +33,10 @@ export default async function ConversationPage({
     <div className="lg:pl-80 h-full">
       <div className="h-full flex flex-col">
         <Header conversation={conversation} />
+
+        <Body />
+
+        <MessageForm />
       </div>
     </div>
   );
