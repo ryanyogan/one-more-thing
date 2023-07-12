@@ -1,5 +1,6 @@
 "use client";
 
+import { useActiveList } from "@/hooks/use-active-list";
 import { useOtherUser } from "@/hooks/use-other-user";
 import { Conversation, User } from "@prisma/client";
 import Link from "next/link";
@@ -18,14 +19,16 @@ interface HeaderProps {
 export default function Header({ conversation }: HeaderProps) {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
 
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
 
-    return `Active`;
-  }, [conversation]);
+    return isActive ? "Active" : "Offline";
+  }, [conversation, isActive]);
 
   return (
     <>
