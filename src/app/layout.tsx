@@ -1,3 +1,4 @@
+import ActiveStatus from "@/components/ui/active-status";
 import AuthProvider from "@/providers/auth-provider";
 import ToasterProvider from "@/providers/toaster-provider";
 import type { Metadata } from "next";
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
+          <ActiveStatus />
           {children}
           <ToasterProvider />
         </AuthProvider>
